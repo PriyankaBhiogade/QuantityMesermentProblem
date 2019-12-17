@@ -26,6 +26,13 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenValueZeroAndNullInFeet1_ShouldReturnWrongValue() {
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Inch inch1 = new Inch(0.0);
+        Assert.assertNotEquals(feet1,inch1);
+    }
+
+    @Test
     public void givenValueInZeroInchAndZeroInch_ShouldReturnEqualValue() {
         Length inch1 = new Length(Length.Unit.INCH,0.0);
         Length inch2 = new Length(Length.Unit.INCH,0.0);

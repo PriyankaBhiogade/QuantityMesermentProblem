@@ -1,9 +1,10 @@
 package com.quantitymeasurment;
 
-import java.util.Objects;
-
 public class Length {
+    enum Unit {FEET, INCH}
 
+    private final Unit unit;
+    private final double value;
     private static final double FEET_TO_INCH = 12.0 ;
 
     public Boolean compare(Length that) {
@@ -15,11 +16,6 @@ public class Length {
             return Double.compare(this.value,that.value) == 0;
         return false;
     }
-
-    enum Unit {FEET, INCH };
-
-    private final Unit unit;
-    private final double value;
 
     @Override
     public boolean equals(Object o) {
