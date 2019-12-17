@@ -6,7 +6,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
 
     @Test
-    public void givenAValueInFeet_WhenEqualToFeet_ShouldReturnTrue() {
+    public void givenValueInZeroFeetAndZeroFeet_ShouldReturnWrongValue() {
         QuantityMeasurement feet1 = new QuantityMeasurement(0.0);
         QuantityMeasurement feet2 = new  QuantityMeasurement(0.0);
         Assert.assertEquals(feet1,feet2);
