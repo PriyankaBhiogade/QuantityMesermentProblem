@@ -13,11 +13,6 @@ public class QuantityMeasurement {
         return Double.compare(that.value, value) == 0;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(value);
-    }
-
     public QuantityMeasurement(double value) {
         this.value=value;
     }
