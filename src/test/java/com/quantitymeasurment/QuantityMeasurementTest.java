@@ -28,8 +28,8 @@ public class QuantityMeasurementTest {
     @Test
     public void givenTwoClassObject_WhenDifferent_ShouldReturnWrongValue() {
         Length feet1 = new Length(MeasurementUnits.FEET, 0.0);
-        Inch inch1 = new Inch(0.0);
-        Assert.assertNotEquals(feet1,inch1);
+        Length feet2 = new Length(MeasurementUnits.FEET, 0.0);
+        Assert.assertEquals(feet1,feet2);
     }
 
     @Test
@@ -154,6 +154,14 @@ public class QuantityMeasurementTest {
         Length yard1 = new Length(MeasurementUnits.YARD, 1.0);
         Length feet1 = new Length(MeasurementUnits.FEET, 3.0);
         boolean compareCheck = yard1.compare(feet1);
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1YardAnd1Yard_ShouldReturnTrueValue() {
+        Length yard1 = new Length(MeasurementUnits.YARD, 1.0);
+        Length yard2 = new Length(MeasurementUnits.YARD, 1.0);
+        boolean compareCheck = yard1.compare(yard2);
         Assert.assertTrue(compareCheck);
     }
 }
