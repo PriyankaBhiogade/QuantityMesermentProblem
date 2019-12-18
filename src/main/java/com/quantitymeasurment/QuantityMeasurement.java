@@ -23,4 +23,10 @@ public class QuantityMeasurement {
         Boolean conversion = UnitValues.conversion(that, this);
         return conversion;
     }
+
+    public Double additionOfLenghths(QuantityMeasurement that) {
+        Double addition = UnitValues.addition(that,this);
+        return addition;
+
+    }
 }
