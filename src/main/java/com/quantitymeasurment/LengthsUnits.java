@@ -9,11 +9,11 @@ public enum LengthsUnits {
         this.measurementValue = measurementValue;
     }
 
-    public static Boolean conversion(QuantityMeasurement val1, QuantityMeasurement val2) {
+    public static Boolean conversion(LengthMeasurement val1, LengthMeasurement val2) {
         return Double.compare((val1.value * val1.lengthsUnits.measurementValue), (val2.value * val2.lengthsUnits.measurementValue)) == 0;
     }
 
-    public static Double addition(QuantityMeasurement val1, QuantityMeasurement val2) {
+    public static Double addition(LengthMeasurement val1, LengthMeasurement val2) {
         return ((val1.value * val1.lengthsUnits.measurementValue) + (val2.value * val2.lengthsUnits.measurementValue)) ;
     }
 }
