@@ -10,9 +10,11 @@ public enum VolumesUnits {
         this.measurementValue = measurementValue;
     }
 
-
-
     public static Boolean conversion(VolumeMeasurement val1, VolumeMeasurement val2) {
         return Double.compare((val1.value * val1.volumeUnits.measurementValue), (val2.value * val2.volumeUnits.measurementValue)) == 0;
+    }
+
+    public static Double addition(VolumeMeasurement val1, VolumeMeasurement val2) {
+        return ((val1.value * val1.volumeUnits.measurementValue) + (val2.value * val2.volumeUnits.measurementValue)) ;
     }
 }

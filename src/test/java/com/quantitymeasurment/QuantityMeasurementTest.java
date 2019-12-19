@@ -235,4 +235,20 @@ public class QuantityMeasurementTest {
         boolean compareCheck = litres.compareVolumeUnits(mL);
         Assert.assertTrue(compareCheck);
     }
+
+    @Test
+    public void given1GallonAnd3_78litres_ShouldReturn7_57Litres() {
+       VolumeMeasurement gallon = new VolumeMeasurement(VolumesUnits.GALLON, 1.0);
+        VolumeMeasurement litres = new VolumeMeasurement(VolumesUnits.LITRES, 3.78);
+        double result = gallon.additionOfVolumes(litres);
+        Assert.assertEquals(7.57,result,0.1);
+    }
+
+    @Test
+    public void given1LitreAnd1000Milliliters_ShouldReturn2Litres() {
+        VolumeMeasurement litres = new VolumeMeasurement(VolumesUnits.LITRES, 1.0);
+        VolumeMeasurement ml = new VolumeMeasurement(VolumesUnits.MILLILITERS, 1000.0);
+        double result = litres.additionOfVolumes(ml);
+        Assert.assertEquals(2.0,result,0.0);
+    }
 }

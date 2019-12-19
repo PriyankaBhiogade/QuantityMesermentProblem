@@ -25,4 +25,10 @@ public class VolumeMeasurement {
         Boolean conversion = VolumesUnits.conversion(that, this);
         return conversion;
     }
+
+    public Double additionOfVolumes(VolumeMeasurement that) {
+        Double addition = volumeUnits.addition(that, this);
+        return addition;
+    }
+
 }
