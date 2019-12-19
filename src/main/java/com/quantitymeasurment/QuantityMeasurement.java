@@ -3,7 +3,6 @@ package com.quantitymeasurment;
 import java.util.Objects;
 
 public class QuantityMeasurement {
-
     public Double value;
     public IUnit units;
 
@@ -21,7 +20,10 @@ public class QuantityMeasurement {
                 Objects.equals(units, that.units);
     }
 
-    public Boolean compareUnits(QuantityMeasurement that) {
+    public Boolean compareUnits(QuantityMeasurement that) throws QuantityMeasurementException {
+        if(!that.units.getClass().equals(this.units.getClass())){
+            throw new QuantityMeasurementException("Class Not Equal",QuantityMeasurementException.ExceptionType.CLASS_NOT_EQUAL);
+        }
         return Double.compare((this.value * this.units.conversion()), (that.value * that.units.conversion())) == 0;
     }
 
