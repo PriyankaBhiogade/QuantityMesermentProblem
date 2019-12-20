@@ -21,13 +21,19 @@ public class QuantityMeasurement {
     }
 
     public Boolean compareUnits(QuantityMeasurement that) throws QuantityMeasurementException {
-        if(!that.units.getClass().equals(this.units.getClass())){
-            throw new QuantityMeasurementException("Class Not Equal",QuantityMeasurementException.ExceptionType.CLASS_NOT_EQUAL);
+        if (!that.units.getClass().equals(this.units.getClass())) {
+            throw new QuantityMeasurementException("Class Not Equal", QuantityMeasurementException.ExceptionType.CLASS_NOT_EQUAL);
         }
         return Double.compare((this.value * this.units.conversion()), (that.value * that.units.conversion())) == 0;
     }
 
     public double additionOfUnits(QuantityMeasurement that) {
         return ((this.value * this.units.conversion()) + (that.value * that.units.conversion()));
+    }
+
+    public Boolean temperatureConversion(QuantityMeasurement that) {
+        if (this.units.equals(TemperatureUnit.CELSIUS))
+            return Double.compare(Math.round(this.value - TemperatureUnit.FAHRENHEIT.measurementValue * (5 / 9)), Math.round(this.value)) == 0;
+        return Double.compare(Math.round((that.value * 9 / 5)+ 32) , Math.round(this.value)) == 0;
     }
 }

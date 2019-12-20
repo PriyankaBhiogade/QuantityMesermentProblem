@@ -205,7 +205,6 @@ public class QuantityMeasurementTest {
             Assert.assertTrue(compareCheck);
         } catch (QuantityMeasurementException e) {
         }
-
     }
 
     @Test
@@ -347,5 +346,22 @@ public class QuantityMeasurementTest {
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.CLASS_NOT_EQUAL, e.type);
         }
+    }
+
+    @Test
+    public void given100CelsiusAnd212Fahrenheit_WhenEquals_ShouldReturnTrue() {
+        QuantityMeasurement fahrenheit = new QuantityMeasurement(TemperatureUnit.FAHRENHEIT, 212.0);
+        QuantityMeasurement celsius = new QuantityMeasurement(TemperatureUnit.CELSIUS, 100.0);
+        boolean compareCheck = celsius.temperatureConversion(fahrenheit);
+        Assert.assertTrue(compareCheck);
+    }
+
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_WhenEquals_ShouldReturnTrue() {
+        QuantityMeasurement fahrenheit = new QuantityMeasurement(TemperatureUnit.FAHRENHEIT, 212.0);
+        QuantityMeasurement celsius = new QuantityMeasurement(TemperatureUnit.CELSIUS, 100.0);
+        boolean compareCheck = fahrenheit.temperatureConversion(celsius);
+        Assert.assertTrue(compareCheck);
     }
 }

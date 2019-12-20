@@ -1,7 +1,7 @@
 package com.quantitymeasurment;
 
-public enum TemperatureUnit implements IUnit{
-    FAHRENHEIT(0.0), CELSIUS(0.0);
+public enum TemperatureUnit implements IUnit {
+    FAHRENHEIT(32.0), CELSIUS(1.0);
 
     public final double measurementValue;
 
@@ -11,6 +11,8 @@ public enum TemperatureUnit implements IUnit{
 
     @Override
     public Double conversion() {
-        return this.measurementValue;
+        if (this.equals(FAHRENHEIT))
+            return FAHRENHEIT.measurementValue;
+        return CELSIUS.measurementValue;
     }
 }
